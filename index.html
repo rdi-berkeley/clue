@@ -3,196 +3,400 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MetaGuard: Going Incognito in the Metaverse | Berkeley RDI</title>
-    <meta name="description" content="Virtual reality (VR) telepresence applications and the so-called metaverse promise to be the next major medium of interaction with the internet. However, with numerous recent studies showing the ease at which VR users can be profiled, deanonymized, and data harvested, metaverse platforms carry all the privacy risks of the current internet and more while at present having none of the defensive privacy tools we are accustomed to using on the web. To remedy this, we present the first known method of implementing an incognito mode for VR. Our technique leverages local differential privacy to quantifiably obscure sensitive user data attributes, with a focus on intelligently adding noise when and where it is needed most to maximize privacy while minimizing usability impact. Moreover, our system is capable of flexibly adapting to the unique needs of each metaverse application to further optimize this trade-off. We implement our solution as a universal Unity (C#) plugin that we then evaluate using several popular VR applications. Upon faithfully replicating the most well known VR privacy attack studies, we show a significant degradation of attacker capabilities when using our proposed solution.">
+    <title>Blockchain Large Language Models | Berkeley RDI</title>
+    <meta name="description" content="blockchain large language models - txrank">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="metaverse.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#"><img src="img/mg-sm.png" height="30"> &nbsp; &times; &nbsp; <img src="img/rdi-sm.png" height="30" style="margin-top: 3px; margin-bottom: -3px;"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="https://rdi.berkeley.edu">RDI Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://rdi.berkeley.edu/research">Research Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Metaverse Research
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://rdi.berkeley.edu/metadata">MetaData</a></li>
-                <li><a class="dropdown-item active" href="https://rdi.berkeley.edu/metaguard">MetaGuard</a></li>
-                <li><a class="dropdown-item" href="https://rdi.berkeley.edu/metaverse-sok">Privacy SoK</a></li>
-                <li><a class="dropdown-item" href="https://rdi.berkeley.edu/vr-identification">Identification</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="https://rdi.berkeley.edu/metaverse">View All</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Research @ <img src="img/rdi-sm.png" height="30"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="https://rdi.berkeley.edu">RDI Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="https://rdi.berkeley.edu/research">Research Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="https://rdi.berkeley.edu/zkp">Zero Knowledge Proofs</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Metaverse Research
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/metadata">MetaData</a></li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/metaguard">MetaGuard</a></li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/metaverse-sok">Privacy SoK</a></li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/vr-identification">Identification</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/metaverse">View All</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              DeFi Research
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/defisecurity">DeFiSecurity</a></li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/blockchain-llm">Blockchain LLM</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+
     <div class="bg-light py-5">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-5">
-            <img src="img/mg-thumb.png" class="w-100 rounded">
-          </div>
-          <div class="col-lg-7">
-            <img src="img/mg-sm.png" style="max-width: 100%;" class="mt-5 mt-lg-0" height="60">
-            <h1 class="mt-3">&ldquo;Going Incognito in the Metaverse&rdquo;</h1>
-            <p class="text-secondary">2022 &nbsp;|&nbsp; Vivek Nair &middot; Gonzalo Munilla Garrido &middot; Dawn Song &nbsp;|&nbsp; https://doi.org/10.48550/arXiv.2208.05604</p>
-            <p class="text-justify">Virtual reality (VR) telepresence applications and the so-called "metaverse" promise to be the next major medium of interaction with the internet. However, with numerous recent studies showing the ease at which VR users can be profiled, deanonymized, and data harvested, metaverse platforms carry all the privacy risks of the current internet and more while at present having none of the defensive privacy tools we are accustomed to using on the web. To remedy this, we present the first known method of implementing an "incognito mode" for VR. Our technique leverages local ε-differential privacy to quantifiably obscure sensitive user data attributes, with a focus on intelligently adding noise when and where it is needed most to maximize privacy while minimizing usability impact. Moreover, our system is capable of flexibly adapting to the unique needs of each metaverse application to further optimize this trade-off. We implement our solution as a universal Unity (C#) plugin that we then evaluate using several popular VR applications. Upon faithfully replicating the most well known VR privacy attack studies, we show a significant degradation of attacker capabilities when using our proposed solution.</p>
-            <p class="mb-0"><a class="btn btn-primary btn-lg" href="https://arxiv.org/abs/2208.05604" target="_blank"><i class="fa fa-file-lines"></i>&nbsp; Read Paper</a> &nbsp; <a class="btn btn-secondary btn-lg" href="https://github.com/metaguard/metaguard" target="_blank"><i class="fab fa-github"></i>&nbsp; View Repo</a></p>
+          <div class="col-lg-12">
+            <h1 class="mt-3">Blockchain Large Language Models - TXRANK</h1>
+            <p class="text-secondary">2023 &nbsp;|&nbsp; Yu Gai* &middot; Liyi Zhou* &middot; Kaihua Qin &middot; Dawn Song &middot; Arthur Gervais &nbsp;|&nbsp; https://arxiv.org/pdf/2304.12749.pdf</p>
+            <p class="text-justify">This paper presents a dynamic, real-time approach to detecting anomalous blockchain transactions. The proposed tool, TXRANK, generates tracing representations of blockchain activity and trains from scratch a large language model to act as a real-time Intrusion Detection System. Unlike traditional methods, TXRANK is designed to offer an unrestricted search space and does not rely on predefined rules or patterns, enabling it to detect a broader range of anomalies. We demonstrate the effectiveness of TXRANK through its use as an anomaly detection tool for Ethereum transactions. In our experiments, it effectively identifies abnormal transactions among a dataset of 68M transactions and has a batched throughput of 2284 transactions per second on average. Our results show that, TXRANK identifies abnormal transactions by ranking 49 out of 124 attacks among the top-3 most abnormal transactions interacting with their victim contracts. This work makes contributions to the field of blockchain transaction analysis by introducing a custom data encoding compatible with the transformer architecture, a domain-specific tokenization technique, and a tree encoding method specifically crafted for the Ethereum Virtual Machine (EVM) trace representation.</p>
+            <p class="mb-0"><a class="btn btn-primary btn-lg" href="https://arxiv.org/pdf/2304.12749" target="_blank"><i class="fa fa-file-lines"></i>&nbsp; Read Paper</a></p>
           </div>
         </div>
       </div>
     </div>
-    <!--
-		<div class="bg-secondary text-white mt-4 mb-0">
-			<div class="container features py-4 text-center text-lg-start">
-				<div class="row align-items-center">
-					<div class="col-lg-8">
-						<p><b>As seen in:</b></p>
-						<a href="https://www.forbes.com/sites/dylansloan/2022/08/09/worried-your-phone-is-spying-on-you-just-wait-until-youre-inside-it/?sh=7251bd955794" target="_blank">
-							<img src="img/forbes.png" height="60" style="margin-right: 16px;" />
-						</a>
-						<a href="https://www.theregister.com/2022/07/29/metaverse_privacy_study" target="_blank">
-							<img src="img/register.png" height="70" style="margin-right: 16px;" />
-						</a>
-						<a href="https://cryptovillage.org/" target="_blank">
-							<img src="img/cpv.jpg" height="70" style="border-radius: 50%;" />
-						</a>
-					</div>
-					<div class="col-lg-4">
-						<p class="mt-5 mt-lg-0"><b>We appreciate the support of:</b></p>
-						<a href="https://rdi.berkeley.edu/" target="_blank">
-							<img src="img/rdi.jpg" height="70" style="border-radius: 50%; margin-right: 16px;" />
-						</a>
-						<a href="https://nsf.gov/" target="_blank">
-							<img src="img/nsf.png" height="70" style="border-radius: 50%; margin-right: 16px;" />
-						</a>
-						<a href="http://npsc.org/" target="_blank">
-							<img src="img/npsc.png" height="70" style="border-radius: 50%; margin-right: 16px;" />
-						</a>
-						<a href="https://www.hertzfoundation.org/" target="_blank">
-							<img src="img/hertz.jpg" height="70" style="border-radius: 50%;" />
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-    -->
+
+    <div class="container py-5 text-center">
+      <h1><i>How it works:</i></h1>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <img src="img/highleveloverview.png" class="w-100 rounded">
+        </div>
+        <div class="col-lg-6">
+          <p>High-level overview of the TXRANK defense mechanism, which consists of the following four major steps. <span class="font-weight-bold">&#10122;</span> TXRANK is bootstrapped by feeding in a dataset of historical transactions to train the model using unsupervised learning. <span class="font-weight-bold">&#10123;</span> Depending on the system and threat model, TXRANK detects new block states, including already confirmed transactions, and pending transactions. <span class="font-weight-bold">&#10124;</span> TXRANK ranks transactions based on how abnormal their execution traces are. <span class="font-weight-bold">&#10125;</span> If an abnormal transaction is detected , TXRANK triggers a defense mechanism such as a front-running emergency pause.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="bg-dark text-white">
       <div class="container">
         <div class="row align-items-center mb-5 py-5">
-          <div class="col-md-6">
-            <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/uURwQYgWFlo' frameborder='0' allowfullscreen></iframe></div>
+          <div class="col-md-12">
+            <h1>Comparison with Other Intrusion Detection Techniques</h1>
+            <p>
+              This table provides a comparison of intrusion detection and prevention techniques, highlighting the unique aspects of each method. Unlike reward-based approaches, our technique employs an unrestricted search space, enabling it to identify unexpected execution patterns instead of focusing solely on profitable vulnerabilities. In contrast to pattern-based techniques (dynamic analysis, fuzzing, symbolic execution, and static analysis), our method does not rely on predefined rules or patterns, which allows it to detect a broader range of anomalies. Furthermore, our technique is capable of real-time analysis, a feature not present in pattern-based symbolic execution or static analysis methods.
+            </p>
+            <table>
+              <thead>
+              <tr>
+                <th>Technique</th>
+                <th>Assumed Prior Knowledge</th>
+                <th>Search space Unrestricted From Vulnerability Patterns</th>
+                <th>Real-Time Capable</th>
+                <th>Application Agnostic</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="category">
+                <td colspan="5">Rank based -- the goal is to find all unexpected execution patterns, implicitly capturing vulnerabilities</td>
+              </tr>
+              <tr>
+                <td>TXRANK (this paper)</td>
+                <td>All historical transactions</td>
+                <td>Unrestricted</td>
+                <td>Yes (0.16s)</td>
+                <td>Yes</td>
+              </tr>
+              <tr class="category">
+                <td colspan="5">Reward based -- the goal is to extract financial revenue, implicitly capturing vulnerabilities</td>
+              </tr>
+              <tr>
+                <td>APE</td>
+                <td>N/A</td>
+                <td>Only profitable patterns</td>
+                <td>Yes (0.07s)</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Naive Imitation</td>
+                <td>N/A</td>
+                <td>Only profitable patterns</td>
+                <td>Yes (0.01s)</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>DeFiPoser</td>
+                <td>DApp models</td>
+                <td>Only profitable patterns + Limited by the DApp models</td>
+                <td>Yes (5.93s)</td>
+                <td>No</td>
+              </tr>
+              <tr class="category">
+                <td colspan="5">Pattern based -- the goal is to match / classify predefined known vulnerability patterns with rules (including machine learning methods)</td>
+              </tr>
+              <tr>
+                <td>Pattern based dynamic analysis</td>
+                <td>Rule</td>
+                <td>Limited by the rule</td>
+                <td>Yes</td>
+                <td>Partially</td>
+              </tr>
+              <tr>
+                <td>Pattern based fuzzing</td>
+                <td>Rule + ABI / DApp models</td>
+                <td>Limited by the rule</td>
+                <td>Partially</td>
+                <td>Partially</td>
+              </tr>
+              <tr>
+                <td>Pattern based symbolic execution</td>
+                <td>Rule + Source code / Bytecode</td>
+                <td>Limited by the rule</td>
+                <td>N/A</td>
+                <td>Partially</td>
+              </tr>
+              <tr>
+                <td>Pattern based static analysis</td>
+                <td>Rule + Source code / Bytecode</td>
+                <td>Limited by the rule</td>
+                <td>N/A</td>
+                <td>Partially</td>
+              </tr>
+              <tr class="category">
+                <td colspan="5">Proof based -- the goal is to prove that a set of smart contracts meet specific security properties</td>
+              </tr>
+              <tr>
+                <td>Formal verification</td>
+                <td>Formal security properties + Source code / DApp models</td>
+                <td>Limited by the security properties</td>
+                <td>N/A</td>
+                <td>Partially</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="col-md-6">
-            <h1>MetaGuard at XRSI</h1>
-            <p>MetaData and MetaGuard are already helping to shape metaverse safety and privacy standards. Watch an excerpt from an invited presentation about MetaGuard at the eXtended Reality Safety Initiative (<a href="https://xrsi.org/" target="_blank">XRSI</a>) Privacy &amp; Safety Working Group.</p>
-            <br>
-						<p class="mt-5 mt-lg-0"><b>We appreciate the support of:</b></p>
-						<a href="https://rdi.berkeley.edu/" target="_blank">
-							<img src="img/rdi.jpg" height="70" style="border-radius: 50%; margin-right: 16px;" />
-						</a>
-						<a href="https://nsf.gov/" target="_blank">
-							<img src="img/nsf.png" height="70" style="border-radius: 50%; margin-right: 16px;" />
-						</a>
-						<a href="http://npsc.org/" target="_blank">
-							<img src="img/npsc.png" height="70" style="border-radius: 50%; margin-right: 16px;" />
-						</a>
-						<a href="https://www.hertzfoundation.org/" target="_blank">
-							<img src="img/hertz.jpg" height="70" style="border-radius: 50%;" />
-						</a>
+
           </div>
         </div>
       </div>
     </div>
-    <div class="container py-5 text-center">
-      <h1><i>How it works:</i></h1>
-      <p class="mb-5 w-75 m-auto">MetaGuard is an open-source Unity (C#) plugin that can easily be patched into virtually any VR application using MelonLoader. With MetaGuard installed, "going incognito" in the metaverse is as easy as flipping a switch!</p>
-      <div class="row align-items-center">
-        <div class="col-md-4 py-5 py-md-0">
-          <img src="img/mg-ui.png" class="w-100" />
-        </div>
-        <div class="col-md-8 ps-md-5 text-md-start">
-          <h4 class="mb-3">1. Intuitive VR UI</h4>
-          <p class="mb-3">Once installed, MetaGuard inserts its intuitive into your VR application of choice.</p>
-          <p class="mb-2"><b>(A) Master Toggle:</b> Allows users to "go incognito" at the press of a button.</p>
-          <p class="mb-2"><b>(B) Feature Toggles:</b> Allows users to toggle individual defenses according to their needs.</p>
-          <p class="mb-2"><b>(C) Privacy Slider:</b> Adjusts the privacy parameter (ε) for each defense, allowing users to dynamically adjust the inherent trade-off between privacy and accuracy when using MetaGuard.</p>
-        </div>
-      </div>
-      <div class="row align-items-center mt-5">
-        <div class="col-md-4 py-5 py-md-0 order-md-last">
-          <img src="img/mg-calibration.png" class="w-100" />
-        </div>
-        <div class="col-md-8 pe-md-5 text-md-start">
-          <h4>2. Instantaneous Calibration</h4>
-          <p>When a defense is first enabled, the MetaGuard system uses the OpenVR API to estimate the ground truth attribute values of the user using a one-time snapshot of their telemetry. These ground truth values are then used in combination with pre-defined ε-values and bounds to calculate noisy offsets corresponding to each privacy level.</p>
-        </div>
-      </div>
-      <div class="row align-items-center mt-5 mb-5">
-        <div class="col-md-4 py-5 py-md-0">
-          <img src="img/mg-coord.png" class="w-100" />
-        </div>
-        <div class="col-md-8 ps-md-5 text-md-start">
-          <h4>3. Coordinate Transformations</h4>
-          <p>By default, the Unity game engine uses telemetry data from OpenVR to position game objects within a virtual environment, which are then manipulated by a VR application. The MetaGuard system modifies the game object hierarchy by inserting intermediate "offset" objects. For each enabled defense, the system fetches the noisy attribute value for the currently-selected privacy level and enables the relevant coordinate transformation on one or more of the inserted offset objects such that the observable attribute value matches the differentially private attribute value.</p>
+
+
+
+    <div class="bg-white">
+      <div class="container">
+        <div class="row align-items-center mb-5 py-5">
+          <div class="col-md-12">
+            <h1>Performance Under Various Alarm Threshold Configurations</h1>
+            <p>The table below presents the performance of the intrusion detection method under various alarm threshold configurations, organized by the number of transactions interacting with the vulnerable smart contracts. The results indicate that using a lower alarm threshold enables the detection of a higher percentage of attacks, albeit at the cost of an increased false positive rate. Notably, the efficacy of the alarm threshold varies across different dataset sizes, emphasizing the need to select a suitable threshold based on the specific attributes of the smart contract under investigation.</p>
+            <table>
+              <thead>
+              <tr>
+                <th rowspan="2">Dataset Size</th>
+                <th colspan="5">Percentage Ranking Alarm Threshold (%)</th>
+                <th colspan="3">Absolute Ranking Alarm Threshold</th>
+              </tr>
+              <tr>
+                <th>≤0.01%</th>
+                <th>≤0.1%</th>
+                <th>≤0.5%</th>
+                <th>≤1%</th>
+                <th>≤10%</th>
+                <th>top-1</th>
+                <th>top-2</th>
+                <th>top-3</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- First Row -->
+              <tr>
+                <td>0 - 99 txs (32 attacks, 28% of dataset)</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>5 (16%)</td>
+                <td>7 (22%)</td>
+                <td>20 (63%)</td>
+                <td>23 (72%)</td>
+              </tr>
+              <!-- Second Row -->
+              <tr>
+                <td>Average false positive rate</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>8.18%</td>
+                <td>0%</td>
+                <td>14.8%</td>
+                <td>28.3%</td>
+              </tr>
+              <!-- Third Row -->
+              <tr>
+                <td>Average number of false positives</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>5.1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+              <!-- Fourth Row -->
+              <tr>
+                <td>100 - 999 txs (38 attacks, 33% of dataset)</td>
+                <td>-</td>
+                <td>-</td>
+                <td>8 (21%)</td>
+                <td>12 (32%)</td>
+                <td>28 (74%)</td>
+                <td>7 (18%)</td>
+                <td>12 (32%)</td>
+                <td>15 (39%)</td>
+              </tr>
+              <!-- Fifth Row -->
+              <tr>
+                <td>Average false positive rate</td>
+                <td>-</td>
+                <td>-</td>
+                <td>0.24%</td>
+                <td>0.71%</td>
+                <td>9.65%</td>
+                <td>0%</td>
+                <td>0.46%</td>
+                <td>0.81%</td>
+              </tr>
+              <!-- Sixth Row -->
+              <tr>
+                <td>Average number of false positives</td>
+                <td>-</td>
+                <td>-</td>
+                <td>1.5</td>
+                <td>3.5</td>
+                <td>39.4</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+              <!-- Seventh Row -->
+              <tr>
+                <td>1000 - 9999 txs (17 attacks, 15% of dataset)</td>
+                <td>-</td>
+                <td>6 (35%)</td>
+                <td>9 (53%)</td>
+                <td>11 (65%)</td>
+                <td>13 (76%)</td>
+                <td>4 (24%)</td>
+                <td>7 (41%)</td>
+                <td>7 (41%)</td>
+              </tr>
+              <!-- Eighth Row -->
+              <tr>
+                <td>Average false positive rate</td>
+                <td>-</td>
+                <td>0.054%</td>
+                <td>0.45%</td>
+                <td>0.95%</td>
+                <td>9.96%</td>
+                <td>0%</td>
+                <td>0.049%</td>
+                <td>0.098%</td>
+              </tr>
+              <!-- Ninth Row -->
+              <tr>
+                <td>Average number of false positives</td>
+                <td>-</td>
+                <td>1.4</td>
+                <td>11.5</td>
+                <td>23.7</td>
+                <td>324.5</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+              <!-- Tenth Row -->
+              <tr>
+                <td>10000 + txs (29 attacks, 25% of dataset)</td>
+                <td>2 (7%)</td>
+                <td>7 (24%)</td>
+                <td>16 (55%)</td>
+                <td>18 (62%)</td>
+                <td>21 (72%)</td>
+                <td>2 (7%)</td>
+                <td>3 (10%)</td>
+                <td>4 (14%)</td>
+              </tr>
+              <!-- Eleventh Row -->
+              <tr>
+                <td>Average false positive rate</td>
+                <td>0.007%</td>
+                <td>0.097%</td>
+                <td>0.50%</td>
+                <td>1%</td>
+                <td>10%</td>
+                <td>0%</td>
+                <td>0.004%</td>
+                <td>0.008%</td>
+              </tr>
+              <!-- Twelfth Row -->
+              <tr>
+                <td>Average number of false positives</td>
+                <td>2.5</td>
+                <td>120.1</td>
+                <td>429.9</td>
+                <td>819.6</td>
+                <td>7302.1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+              <!-- Thirteenth Row -->
+              <tr>
+                <td>Overall</td>
+                <td>2 (2%)</td>
+                <td>13 (11%)</td>
+                <td>33 (28%)</td>
+                <td>41 (35%)</td>
+                <td>67 (58%)</td>
+                <td>20 (17%)</td>
+                <td>42 (36%)</td>
+                <td>49 (42%)</td>
+              </tr>
+              <!-- Fourteenth Row -->
+              <tr>
+                <td>Average false positive rate</td>
+                <td>0.007%</td>
+                <td>0.077%</td>
+                <td>0.42%</td>
+                <td>0.90%</td>
+                <td>9.71%</td>
+                <td>0%</td>
+                <td>7.19%</td>
+                <td>13.5%</td>
+              </tr>
+              <!-- Fifteenth Row -->
+              <tr>
+                <td>Average number of false positives</td>
+                <td>2.5</td>
+                <td>65.3</td>
+                <td>211.9</td>
+                <td>367.2</td>
+                <td>2368.5</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+
+
+            </table>
+          </div>
         </div>
       </div>
     </div>
-    <div class="bg-dark text-white py-4">
-      <div class="container text-center">
-        <h5 class="mb-4"><i>Authors:</i></h5>
-        <div class="row">
-          <div class="col-4">
-            <div class="row align-items-center">
-              <div class="col-lg-6 text-lg-end">
-                <img src="img/vivek.jpg" height="120" class="rounded-circle" />
-              </div>
-              <div class="col-lg-6 text-lg-start">
-                <h3 class="text-truncate">Vivek Nair</h3>
-                <a class="btn btn-primary btn-sm mt-2" href="https://nair.me" target="_blank"><i class="fa fa-link"></i>&nbsp; Website</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row align-items-center">
-              <div class="col-lg-6 text-lg-end">
-                <img src="img/gonzalo.jpg" height="120" class="rounded-circle" />
-              </div>
-              <div class="col-lg-6 text-lg-start">
-                <h3 class="text-truncate">Gonzalo Munilla Garrido</h3>
-                <a class="btn btn-primary btn-sm mt-2" href="https://www.linkedin.com/in/gonzalo-munilla/" target="_blank"><i class="fa fa-link"></i>&nbsp; Website</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row align-items-center">
-              <div class="col-lg-6 text-lg-end">
-                <img src="img/dawn.jpg" height="120" class="rounded-circle" />
-              </div>
-              <div class="col-lg-6 text-lg-start">
-                <h3 class="text-truncate">Dawn Song</h3>
-                <a class="btn btn-primary btn-sm mt-2" href="https://people.eecs.berkeley.edu/~dawnsong" target="_blank"><i class="fa fa-link"></i>&nbsp; Website</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div class="bg-dark text-white text-center py-2">
       <div class="container">
         <p class="m-0">Copyright &copy;2022 UC Regents &nbsp;|&nbsp; Email us at <a href="mailto:rdi@berkeley.edu">rdi@berkeley.edu</a>.</p>

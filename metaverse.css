@@ -75,3 +75,40 @@
 .text-justify {
   text-align: justify;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: center;
+  word-wrap: break-word;
+  color: white;
+}
+
+th {
+  background-color: #444;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #333;
+}
+
+tr:nth-child(odd) {
+  background-color: #300;
+}
+
+/*tr:hover {*/
+/*  background-color: #222;*/
+/*}*/
+
+.category {
+  font-weight: bold;
+  background-color: #555;
+}
