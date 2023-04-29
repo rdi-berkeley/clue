@@ -41,12 +41,18 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
               DeFi Research
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/defisecurity">DeFiSecurity</a></li>
-              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/blockchain-llm">Blockchain LLM</a></li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/defi-attacks">DeFi Attacks</a></li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/blockchain-llm">Blockchain LLM</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="https://rdi.berkeley.edu/defi">View All</a></li>
             </ul>
           </li>
         </ul>
@@ -58,9 +64,9 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-12">
-            <h1 class="mt-3">Blockchain Large Language Models - TXRANK</h1>
+            <h1 class="mt-3">Blockchain Large Language Models - BlockGPT</h1>
             <p class="text-secondary">2023 &nbsp;|&nbsp; Yu Gai* &middot; Liyi Zhou* &middot; Kaihua Qin &middot; Dawn Song &middot; Arthur Gervais &nbsp;|&nbsp; https://arxiv.org/pdf/2304.12749.pdf</p>
-            <p class="text-justify">This paper presents a dynamic, real-time approach to detecting anomalous blockchain transactions. The proposed tool, TXRANK, generates tracing representations of blockchain activity and trains from scratch a large language model to act as a real-time Intrusion Detection System. Unlike traditional methods, TXRANK is designed to offer an unrestricted search space and does not rely on predefined rules or patterns, enabling it to detect a broader range of anomalies. We demonstrate the effectiveness of TXRANK through its use as an anomaly detection tool for Ethereum transactions. In our experiments, it effectively identifies abnormal transactions among a dataset of 68M transactions and has a batched throughput of 2284 transactions per second on average. Our results show that, TXRANK identifies abnormal transactions by ranking 49 out of 124 attacks among the top-3 most abnormal transactions interacting with their victim contracts. This work makes contributions to the field of blockchain transaction analysis by introducing a custom data encoding compatible with the transformer architecture, a domain-specific tokenization technique, and a tree encoding method specifically crafted for the Ethereum Virtual Machine (EVM) trace representation.</p>
+            <p class="text-justify">This paper presents a dynamic, real-time approach to detecting anomalous blockchain transactions. The proposed tool, BlockGPT, generates tracing representations of blockchain activity and trains from scratch a large language model to act as a real-time Intrusion Detection System. Unlike traditional methods, BlockGPT is designed to offer an unrestricted search space and does not rely on predefined rules or patterns, enabling it to detect a broader range of anomalies. We demonstrate the effectiveness of BlockGPT through its use as an anomaly detection tool for Ethereum transactions. In our experiments, it effectively identifies abnormal transactions among a dataset of 68M transactions and has a batched throughput of 2284 transactions per second on average. Our results show that, BlockGPT identifies abnormal transactions by ranking 49 out of 124 attacks among the top-3 most abnormal transactions interacting with their victim contracts. This work makes contributions to the field of blockchain transaction analysis by introducing a custom data encoding compatible with the transformer architecture, a domain-specific tokenization technique, and a tree encoding method specifically crafted for the Ethereum Virtual Machine (EVM) trace representation.</p>
             <p class="mb-0"><a class="btn btn-primary btn-lg" href="https://arxiv.org/pdf/2304.12749" target="_blank"><i class="fa fa-file-lines"></i>&nbsp; Read Paper</a></p>
           </div>
         </div>
@@ -74,7 +80,7 @@
           <img src="img/highleveloverview.png" class="w-100 rounded">
         </div>
         <div class="col-lg-6">
-          <p>High-level overview of the TXRANK defense mechanism, which consists of the following four major steps. <span class="font-weight-bold">&#10122;</span> TXRANK is bootstrapped by feeding in a dataset of historical transactions to train the model using unsupervised learning. <span class="font-weight-bold">&#10123;</span> Depending on the system and threat model, TXRANK detects new block states, including already confirmed transactions, and pending transactions. <span class="font-weight-bold">&#10124;</span> TXRANK ranks transactions based on how abnormal their execution traces are. <span class="font-weight-bold">&#10125;</span> If an abnormal transaction is detected , TXRANK triggers a defense mechanism such as a front-running emergency pause.</p>
+          <p>High-level overview of the BlockGPT defense mechanism, which consists of the following four major steps. <span class="font-weight-bold">&#10122;</span> BlockGPT is bootstrapped by feeding in a dataset of historical transactions to train the model using unsupervised learning. <span class="font-weight-bold">&#10123;</span> Depending on the system and threat model, BlockGPT detects new block states, including already confirmed transactions, and pending transactions. <span class="font-weight-bold">&#10124;</span> BlockGPT ranks transactions based on how abnormal their execution traces are. <span class="font-weight-bold">&#10125;</span> If an abnormal transaction is detected , BlockGPT triggers a defense mechanism such as a front-running emergency pause.</p>
         </div>
       </div>
     </div>
@@ -102,7 +108,7 @@
                 <td colspan="5">Rank based -- the goal is to find all unexpected execution patterns, implicitly capturing vulnerabilities</td>
               </tr>
               <tr>
-                <td>TXRANK (this paper)</td>
+                <td>BlockGPT (this paper)</td>
                 <td>All historical transactions</td>
                 <td>Unrestricted</td>
                 <td>Yes (0.16s)</td>
