@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blockchain Large Language Models | Berkeley RDI</title>
+    <title>Towards Automated Security Analysis of Smart Contracts based on Execution Property Graph | Berkeley RDI</title>
     <meta name="description" content="blockchain large language models - txrank">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -64,345 +64,199 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-12">
-            <h1 class="mt-3">Blockchain Large Language Models - BlockGPT</h1>
-            <p class="text-secondary">2023 &nbsp;|&nbsp; Yu Gai* &middot; Liyi Zhou* &middot; Kaihua Qin &middot; Dawn Song &middot; Arthur Gervais &nbsp;|&nbsp; https://arxiv.org/pdf/2304.12749.pdf</p>
-            <p class="text-justify">This paper presents a dynamic, real-time approach to detecting anomalous blockchain transactions. The proposed tool, BlockGPT, generates tracing representations of blockchain activity and trains from scratch a large language model to act as a real-time Intrusion Detection System. Unlike traditional methods, BlockGPT is designed to offer an unrestricted search space and does not rely on predefined rules or patterns, enabling it to detect a broader range of anomalies. We demonstrate the effectiveness of BlockGPT through its use as an anomaly detection tool for Ethereum transactions. In our experiments, it effectively identifies abnormal transactions among a dataset of 68M transactions and has a batched throughput of 2284 transactions per second on average. Our results show that, BlockGPT identifies abnormal transactions by ranking 49 out of 124 attacks among the top-3 most abnormal transactions interacting with their victim contracts. This work makes contributions to the field of blockchain transaction analysis by introducing a custom data encoding compatible with the transformer architecture, a domain-specific tokenization technique, and a tree encoding method specifically crafted for the Ethereum Virtual Machine (EVM) trace representation.</p>
-            <p class="mb-0"><a class="btn btn-primary btn-lg" href="https://arxiv.org/pdf/2304.12749" target="_blank"><i class="fa fa-file-lines"></i>&nbsp; Read Paper</a></p>
+            <h1 class="mt-3">Towards Automated Security Analysis of Smart Contracts based on Execution Property Graph - <span class="clue">Clue</span> </h1>
+            <p class="text-secondary">2023 &nbsp;|&nbsp; Kaihua Qin &middot; Zhe Ye &middot; Zhun Wang &middot; Weilin Li &middot; Liyi Zhou &middot; Chao Zhang &middot; Dawn Song &middot; Arthur Gervais &nbsp;|&nbsp; https://arxiv.org/pdf/xxxx.yyyyy.pdf</p>
+            <p class="text-justify">Identifying and mitigating vulnerabilities in smart contracts is crucial, especially considering the rapid growth and increasing complexity of DeFi platforms. To address the challenges associated with securing these contracts, we introduce a versatile dynamic analysis framework specifically designed for the EVM. This comprehensive framework focuses on tracking contract executions, capturing valuable runtime information, while introducing and employing the EPG to propose a unique graph traversal technique that swiftly detects potential smart contract attacks. Our approach showcases its efficacy with rapid average graph traversal time per transaction and high true positive rates. The successful identification of a zero-day vulnerability affecting Uniswap highlights the framework's potential to effectively uncover smart contract vulnerabilities in complex DeFi systems.</p>
+            <p class="mb-0"><a class="btn btn-primary btn-lg" href="https://arxiv.org/pdf/xxxx.yyyyy.pdf" target="_blank"><i class="fa fa-file-lines"></i>&nbsp; Read Paper</a></p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="container py-5 text-center">
-      <h1><i>How it works:</i></h1>
+      <h1><i>What Execution Property Graph (EPG) is:</i></h1>
       <div class="row align-items-center">
         <div class="col-lg-6">
-          <img src="img/highleveloverview.png" class="w-100 rounded">
+            <img src="img/epg-graph-code.png" style="width: 80%;">      
         </div>
+        <!-- <div class="col-lg-6">
+          <div>
+            <img src="img/epg-graph-code.png" style="width: 100%;">      
+          </div>
+        </div> -->
         <div class="col-lg-6">
-          <p>High-level overview of the BlockGPT defense mechanism, which consists of the following four major steps. <span class="font-weight-bold">&#10122;</span> BlockGPT is bootstrapped by feeding in a dataset of historical transactions to train the model using unsupervised learning. <span class="font-weight-bold">&#10123;</span> Depending on the system and threat model, BlockGPT detects new block states, including already confirmed transactions, and pending transactions. <span class="font-weight-bold">&#10124;</span> BlockGPT ranks transactions based on how abnormal their execution traces are. <span class="font-weight-bold">&#10125;</span> If an abnormal transaction is detected , BlockGPT triggers a defense mechanism such as a front-running emergency pause.</p>
+          <img src="img/epg-graph-example.png" id="displayed-image" style="width: 100%;">
         </div>
+        <div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+              <input type="radio" name="graph-options" onclick="displayImage('example')" autocomplete="off" checked> EPG
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="graph-options" onclick="displayImage('ctg')" autocomplete="off"> CTG
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="graph-options" onclick="displayImage('dcfg')" autocomplete="off"> DCFG
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="graph-options" onclick="displayImage('ddg')" autocomplete="off"> DDG
+            </label>
+          </div>
+        </div>
+        <script>
+          function displayImage(imageName) {
+            // alert(imageName);
+            var displayedImage = document.getElementById("displayed-image");
+            if (imageName === "ctg") {
+              displayedImage.style.width = '60%';
+            } else if (imageName === "dcfg") {
+              displayedImage.style.width = '60%';
+            } else if (imageName === "ddg") {
+              displayedImage.style.width = '80%';
+            } else if (imageName === "example") {
+              displayedImage.style.width = '100%';
+            }
+            displayedImage.src = 'img/epg-graph-' + imageName + '.png';
+          }
+        </script>
+
+        <center>
+          <div style="width: 80%; text-align: left;">
+            EPG is a graph representation of smart contract executions. It is a property graph that combines the dynamic execution information on EVM bytecode level, supplied by three basic execution representation graphs: <i>(i) Call Trace Graph (CTG), (ii) Dynamic Control Flow Graph (DCFG)</i>, and <i>(iii) Dynamic Dependence Graph (DDG)</i>. The <i>CTG</i> represents the calling relationships between mulitple smart contracts in a transaction. The <i>DCFG</i> represents the dynamically executed smart contract code as a graph, where each vertex denotes a basic block. The <i>DDG</i> represents data dependencies and control dependencies in a smart contract built from concrete executions.
+          </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="container py-5 text-center">
+      <div class="row align-items-center">
+        <h1><i>How <span class="clue">Clue</span> works:</i></h1>
+        <div>
+          <img src="img/epg-overview.png" class="w-100 rounded">
+        </div>
+        <center>
+          <div style="width: 80%; text-align: left;">
+            This flow chart shows the high-level architecture of <span class="clue">Clue</span>. <span class="clue">Clue</span> offers support for both online and offline modes. The online mode enables real-time analysis of unconfirmed transactions, while the offline mode facilitates postmortem analysis. Central to <span class="clue">Clue</span> is an EVM emulator, which emulates and tracks the execution of the EVM. <span class="clue">Clue</span> allows extracting the data, control, asset flows from a transaction and further constructing EPG efficiently. Based on the EPG, we devise a graph traversal approach for identifying smart contract attacks automatically.
+          </div>
+        </center>
       </div>
     </div>
 
     <div class="bg-dark text-white">
       <div class="container">
-        <div class="row align-items-center mb-5 py-5">
+        <div class="row align-items-center py-5 mb-5">
           <div class="col-md-12">
-            <h1>Comparison with Other Intrusion Detection Techniques</h1>
-            <p>
-              This table provides a comparison of intrusion detection and prevention techniques, highlighting the unique aspects of each method. Unlike reward-based approaches, our technique employs an unrestricted search space, enabling it to identify unexpected execution patterns instead of focusing solely on profitable vulnerabilities. In contrast to pattern-based techniques (dynamic analysis, fuzzing, symbolic execution, and static analysis), our method does not rely on predefined rules or patterns, which allows it to detect a broader range of anomalies. Furthermore, our technique is capable of real-time analysis, a feature not present in pattern-based symbolic execution or static analysis methods.
-            </p>
+            <h1><span class="clue">Clue</span>'s Performance in Detecting Typical Attacks</h1>
+            To evaluate <span class="clue">Clue</span>'s performance in detecting <i>reentrancy, access control</i>, and <i>price manipulation</i> attacks, we construct three separate datasets: <i>(i) an Attack, (ii) a High-Gas</i>, and <i>(iii) a Regular dataset</i>. The <i>Attack</i> dataset comprises all attack transactions that were reported in <a href="https://arxiv.org/abs/2208.13035">SoK: Decentralized Finance (DeFi) Attacks</a> and correspond to the evaluated vulnerability type. Its main objective is to assess the true positive rate (FPR) and the false negative rate (FNR). Sampling from the non-attack transactions that have interacted with the related victim contracts in the <i>Attack</i> dataset, the <i>High-Gas</i> and <i>Regular</i> datasets comprise about 1k transactions with the highest gas, and about 20k randomly selected transactions, respectively. The primary objective is to assess the true negative rate (TNR) and false positive rate (FPR).
+            <h2>Reentrancy Attack</h2>
+            The <i>Attack</i> dataset showcases a high true positive rate (91.95%) and a relatively low false negative rate (8.05%) with all false negatives resulting from "No Asset Flow" cases. In non-attack datasets, the true negative rates are remarkably high (99.81%) for <i>High-Gas</i> and (99.99%) for <i>Regular</i>. The few false positives are caused by Flash Loan and Rebase Token cases.
             <table>
               <thead>
-              <tr>
-                <th>Technique</th>
-                <th>Assumed Prior Knowledge</th>
-                <th>Search space Unrestricted From Vulnerability Patterns</th>
-                <th>Real-Time Capable</th>
-                <th>Application Agnostic</th>
-              </tr>
+                <tr>
+                  <th rowspan="2">Dataset</th>
+                  <th rowspan="2">Attack</th>
+                  <th colspan="2">Non-Attack</th>
+                </tr>
+                <tr>
+                  <th>High-Gas</th>
+                  <th>Regular</th>
+                </tr>
               </thead>
               <tbody>
-              <tr class="category">
-                <td colspan="5">Rank based -- the goal is to find all unexpected execution patterns, implicitly capturing vulnerabilities</td>
-              </tr>
-              <tr>
-                <td>BlockGPT (this paper)</td>
-                <td>All historical transactions</td>
-                <td>Unrestricted</td>
-                <td>Yes (0.16s)</td>
-                <td>Yes</td>
-              </tr>
-              <tr class="category">
-                <td colspan="5">Reward based -- the goal is to extract financial revenue, implicitly capturing vulnerabilities</td>
-              </tr>
-              <tr>
-                <td>APE</td>
-                <td>N/A</td>
-                <td>Only profitable patterns</td>
-                <td>Yes (0.07s)</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>Naive Imitation</td>
-                <td>N/A</td>
-                <td>Only profitable patterns</td>
-                <td>Yes (0.01s)</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>DeFiPoser</td>
-                <td>DApp models</td>
-                <td>Only profitable patterns + Limited by the DApp models</td>
-                <td>Yes (5.93s)</td>
-                <td>No</td>
-              </tr>
-              <tr class="category">
-                <td colspan="5">Pattern based -- the goal is to match / classify predefined known vulnerability patterns with rules (including machine learning methods)</td>
-              </tr>
-              <tr>
-                <td>Pattern based dynamic analysis</td>
-                <td>Rule</td>
-                <td>Limited by the rule</td>
-                <td>Yes</td>
-                <td>Partially</td>
-              </tr>
-              <tr>
-                <td>Pattern based fuzzing</td>
-                <td>Rule + ABI / DApp models</td>
-                <td>Limited by the rule</td>
-                <td>Partially</td>
-                <td>Partially</td>
-              </tr>
-              <tr>
-                <td>Pattern based symbolic execution</td>
-                <td>Rule + Source code / Bytecode</td>
-                <td>Limited by the rule</td>
-                <td>N/A</td>
-                <td>Partially</td>
-              </tr>
-              <tr>
-                <td>Pattern based static analysis</td>
-                <td>Rule + Source code / Bytecode</td>
-                <td>Limited by the rule</td>
-                <td>N/A</td>
-                <td>Partially</td>
-              </tr>
-              <tr class="category">
-                <td colspan="5">Proof based -- the goal is to prove that a set of smart contracts meet specific security properties</td>
-              </tr>
-              <tr>
-                <td>Formal verification</td>
-                <td>Formal security properties + Source code / DApp models</td>
-                <td>Limited by the security properties</td>
-                <td>N/A</td>
-                <td>Partially</td>
-              </tr>
+                <tr>
+                  <td>Size</td>
+                  <td>87</td>
+                  <td>1,077</td>
+                  <td>19,985</td>
+                </tr>
+                <tr>
+                  <td>Gas Cost</td>
+                  <td>3.33 &plusmn; 3.41M</td>
+                  <td>2.13 &plusmn; 1.38M</td>
+                  <td>0.24 &plusmn; 0.29M</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th colspan="4">Generic Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Traversal Time</td>
+                  <td>108 &plusmn; 136ms</td>
+                  <td>20 &plusmn; 21ms</td>
+                  <td>7 &plusmn; 3ms</td>
+                </tr>
+                <tr>
+                  <td>TP (%)</td>
+                  <td>80 (91.95%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>FN (%)</td>
+                  <td>7 (8.05%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>TN (%)</td>
+                  <td>-</td>
+                  <td>1075 (99.81%)</td>
+                  <td>19,984 (99.99%)</td>
+                </tr>
+                <tr>
+                  <td>FP (%)</td>
+                  <td>-</td>
+                  <td>2 (0.19%)</td>
+                  <td>1 (0.01%)</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th colspan="4">Refined Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Traversal Time</td>
+                  <td>0.32 &plusmn; 0.93s</td>
+                  <td>52 &plusmn; 109ms</td>
+                  <td>16 &plusmn; 347ms</td>
+                </tr>
+                <tr>
+                  <td>TP (%)</td>
+                  <td>87 (100%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>FN (%)</td>
+                  <td>0 (0%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>TN (%)</td>
+                  <td>-</td>
+                  <td>1069 (99.26%)</td>
+                  <td>19,812 (99.08%)</td>
+                </tr>
+                <tr>
+                  <td>FP (%)</td>
+                  <td>-</td>
+                  <td>8 (0.74%)</td>
+                  <td>173 (0.87%)</td>
+                </tr>
               </tbody>
             </table>
-          </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="bg-white">
-      <div class="container">
-        <div class="row align-items-center mb-5 py-5">
-          <div class="col-md-12">
-            <h1>Performance Under Various Alarm Threshold Configurations</h1>
-            <p>The table below presents the performance of the intrusion detection method under various alarm threshold configurations, organized by the number of transactions interacting with the vulnerable smart contracts. The results indicate that using a lower alarm threshold enables the detection of a higher percentage of attacks, albeit at the cost of an increased false positive rate. Notably, the efficacy of the alarm threshold varies across different dataset sizes, emphasizing the need to select a suitable threshold based on the specific attributes of the smart contract under investigation.</p>
-            <table>
-              <thead>
-              <tr>
-                <th rowspan="2">Dataset Size</th>
-                <th colspan="5">Percentage Ranking Alarm Threshold (%)</th>
-                <th colspan="3">Absolute Ranking Alarm Threshold</th>
-              </tr>
-              <tr>
-                <th>≤0.01%</th>
-                <th>≤0.1%</th>
-                <th>≤0.5%</th>
-                <th>≤1%</th>
-                <th>≤10%</th>
-                <th>top-1</th>
-                <th>top-2</th>
-                <th>top-3</th>
-              </tr>
-              </thead>
-              <tbody>
-              <!-- First Row -->
-              <tr>
-                <td>0 - 99 txs (32 attacks, 28% of dataset)</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>5 (16%)</td>
-                <td>7 (22%)</td>
-                <td>20 (63%)</td>
-                <td>23 (72%)</td>
-              </tr>
-              <!-- Second Row -->
-              <tr>
-                <td>Average false positive rate</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>8.18%</td>
-                <td>0%</td>
-                <td>14.8%</td>
-                <td>28.3%</td>
-              </tr>
-              <!-- Third Row -->
-              <tr>
-                <td>Average number of false positives</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>5.1</td>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-              </tr>
-              <!-- Fourth Row -->
-              <tr>
-                <td>100 - 999 txs (38 attacks, 33% of dataset)</td>
-                <td>-</td>
-                <td>-</td>
-                <td>8 (21%)</td>
-                <td>12 (32%)</td>
-                <td>28 (74%)</td>
-                <td>7 (18%)</td>
-                <td>12 (32%)</td>
-                <td>15 (39%)</td>
-              </tr>
-              <!-- Fifth Row -->
-              <tr>
-                <td>Average false positive rate</td>
-                <td>-</td>
-                <td>-</td>
-                <td>0.24%</td>
-                <td>0.71%</td>
-                <td>9.65%</td>
-                <td>0%</td>
-                <td>0.46%</td>
-                <td>0.81%</td>
-              </tr>
-              <!-- Sixth Row -->
-              <tr>
-                <td>Average number of false positives</td>
-                <td>-</td>
-                <td>-</td>
-                <td>1.5</td>
-                <td>3.5</td>
-                <td>39.4</td>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-              </tr>
-              <!-- Seventh Row -->
-              <tr>
-                <td>1000 - 9999 txs (17 attacks, 15% of dataset)</td>
-                <td>-</td>
-                <td>6 (35%)</td>
-                <td>9 (53%)</td>
-                <td>11 (65%)</td>
-                <td>13 (76%)</td>
-                <td>4 (24%)</td>
-                <td>7 (41%)</td>
-                <td>7 (41%)</td>
-              </tr>
-              <!-- Eighth Row -->
-              <tr>
-                <td>Average false positive rate</td>
-                <td>-</td>
-                <td>0.054%</td>
-                <td>0.45%</td>
-                <td>0.95%</td>
-                <td>9.96%</td>
-                <td>0%</td>
-                <td>0.049%</td>
-                <td>0.098%</td>
-              </tr>
-              <!-- Ninth Row -->
-              <tr>
-                <td>Average number of false positives</td>
-                <td>-</td>
-                <td>1.4</td>
-                <td>11.5</td>
-                <td>23.7</td>
-                <td>324.5</td>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-              </tr>
-              <!-- Tenth Row -->
-              <tr>
-                <td>10000 + txs (29 attacks, 25% of dataset)</td>
-                <td>2 (7%)</td>
-                <td>7 (24%)</td>
-                <td>16 (55%)</td>
-                <td>18 (62%)</td>
-                <td>21 (72%)</td>
-                <td>2 (7%)</td>
-                <td>3 (10%)</td>
-                <td>4 (14%)</td>
-              </tr>
-              <!-- Eleventh Row -->
-              <tr>
-                <td>Average false positive rate</td>
-                <td>0.007%</td>
-                <td>0.097%</td>
-                <td>0.50%</td>
-                <td>1%</td>
-                <td>10%</td>
-                <td>0%</td>
-                <td>0.004%</td>
-                <td>0.008%</td>
-              </tr>
-              <!-- Twelfth Row -->
-              <tr>
-                <td>Average number of false positives</td>
-                <td>2.5</td>
-                <td>120.1</td>
-                <td>429.9</td>
-                <td>819.6</td>
-                <td>7302.1</td>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-              </tr>
-              <!-- Thirteenth Row -->
-              <tr>
-                <td>Overall</td>
-                <td>2 (2%)</td>
-                <td>13 (11%)</td>
-                <td>33 (28%)</td>
-                <td>41 (35%)</td>
-                <td>67 (58%)</td>
-                <td>20 (17%)</td>
-                <td>42 (36%)</td>
-                <td>49 (42%)</td>
-              </tr>
-              <!-- Fourteenth Row -->
-              <tr>
-                <td>Average false positive rate</td>
-                <td>0.007%</td>
-                <td>0.077%</td>
-                <td>0.42%</td>
-                <td>0.90%</td>
-                <td>9.71%</td>
-                <td>0%</td>
-                <td>7.19%</td>
-                <td>13.5%</td>
-              </tr>
-              <!-- Fifteenth Row -->
-              <tr>
-                <td>Average number of false positives</td>
-                <td>2.5</td>
-                <td>65.3</td>
-                <td>211.9</td>
-                <td>367.2</td>
-                <td>2368.5</td>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-              </tr>
-
-
-            </table>
+            <h2>Access Control Attack</h2>
+            <h2>Price Manipulation Attack</h2>
           </div>
         </div>
       </div>
     </div>
-
     <div class="bg-dark text-white text-center py-2">
       <div class="container">
         <p class="m-0">Copyright &copy;2022 UC Regents &nbsp;|&nbsp; Email us at <a href="mailto:rdi@berkeley.edu">rdi@berkeley.edu</a>.</p>

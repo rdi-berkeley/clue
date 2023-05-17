@@ -112,3 +112,8 @@ tr:nth-child(odd) {
   font-weight: bold;
   background-color: #555;
 }
+
+.clue {
+  font-variant: small-caps;
+  font-weight: 600;
+}
