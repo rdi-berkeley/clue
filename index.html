@@ -130,9 +130,9 @@
           <img src="img/epg-graph-example.png" id="displayed-image" style="width: 100%;">
         </div>
         <div class="col-lg-6" style="text-align: left;">
-          EPG is a comprehensive graph representation of smart contract executions, which is constructed by merging the three basic property graphs, CTG, DCFG, and DDG. It combines the dynamic execution information on EVM bytecode level.
+          EPG is a comprehensive graph representation of smart contract executions, which is constructed by merging the three basic property graphs, CTG, DCFG, and DDG. It combines the dynamic execution information on EVM bytecode level, representing and formalizing contract executions as a graph. The left figure shows the partial EPG of a reentrancy attack transaction. 
         </div>
-      </div>
+      </div>默认文本填充 默认文本填充 email email email
     </div>
     
     <div class="container py-5 text-center">
@@ -148,15 +148,13 @@
         </center>
       </div>
     </div>
-    
     <div class="container py-5 text-center">
       <h1><i>Traversal Based Security Analysis</i></h1>
       <div class="row align-items-center">
         <div class="col-lg-6" style="text-align: left;">
-          !!!!!!The EPG provides extensive information about the contract executions involved in a transaction. The <i>Graph Traversal</i> is a prevalent method for mining information in property graphs, automates the identification of contract attacks.
-        </div>
+          The EPG provides extensive information about the contract executions involved in a transaction. The <i>Graph Traversal</i> refers to the process of visiting vertices of a graph in a specific manner. This process can involve simply visiting every vertex in a predetermined order, or using more sophisticated rules to navigate through the graph. It is a prevalent method for mining information in property graphs, automates the identification of contract attacks.         </div>
         <div class="col-lg-6">
-          <img src="img/epg-graph-example.png" id="displayed-image" style="width: 100%;">
+          <img src="img/reentrancy_traversal_2-1.png" id="displayed-image" style="width: 80%;">
         </div>
       </div>
     </div>
@@ -259,7 +257,7 @@
                 <tr>
                   <td>TN (%)</td>
                   <td>-</td>
-                  <td>1069 (99.26%)</td>
+                  <td>1,069 (99.26%)</td>
                   <td>19,812 (99.08%)</td>
                 </tr>
                 <tr>
@@ -271,7 +269,211 @@
               </tbody>
             </table>
             <h2>Access Control Attack</h2>
+            The <i>Attack</i> dataset demonstrates a high true positive rate (75.41%) and a relatively low false negative rate (24.59%) with all false negatives resulting from "Multi-tx" cases. In non-attack datasets, the true negative rates are remarkably high (98.44%) for <i>High-Gas</i> and (94.43%) for <i>Regular</i>. The few false positives stem from complex DeFi transactions and insufficient authorization checks.
+            <table>
+              <thead>
+                <tr>
+                  <th rowspan="2">Dataset</th>
+                  <th rowspan="2">Attack</th>
+                  <th colspan="2">Non-Attack</th>
+                </tr>
+                <tr>
+                  <th>High-Gas</th>
+                  <th>Regular</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Size</td>
+                  <td>61</td>
+                  <td>1,091</td>
+                  <td>19,992</td>
+                </tr>
+                <tr>
+                  <td>Gas Cost</td>
+                  <td>0.22 &plusmn; 0.65M</td>
+                  <td>2.21 &plusmn; 1.53M</td>
+                  <td>0.24 &plusmn; 0.28M</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th colspan="4">Generic Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Traversal Time</td>
+                  <td>9 &plusmn; 18ms</td>
+                  <td>0.7 &plusmn; 8.6ms</td>
+                  <td>13 &plusmn; 244ms</td>
+                </tr>
+                <tr>
+                  <td>TP (%)</td>
+                  <td>38 (62.30%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>FN (%)</td>
+                  <td>23 (37.70%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>TN (%)</td>
+                  <td>-</td>
+                  <td>942 (86.34%)</td>
+                  <td>14,850 (74.28%)</td>
+                </tr>
+                <tr>
+                  <td>FP (%)</td>
+                  <td>-</td>
+                  <td>149 (13.66%)</td>
+                  <td>5,142 (25.72%)</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th colspan="4">Refined Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Traversal Time</td>
+                  <td>48 &plusmn; 121ms</td>
+                  <td>8 &plusmn; 47ms</td>
+                  <td>0.08 &plusmn; 3.07s</td>
+                </tr>
+                <tr>
+                  <td>TP (%)</td>
+                  <td>46 (75.41%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>FN (%)</td>
+                  <td>15 (24.59%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>TN (%)</td>
+                  <td>-</td>
+                  <td>1,074 (98.44%)</td>
+                  <td>18,879 (94.43%)</td>
+                </tr>
+                <tr>
+                  <td>FP (%)</td>
+                  <td>-</td>
+                  <td>17 (1.56%)</td>
+                  <td>1,113 (5.57%)</td>
+                </tr>
+              </tbody>
+            </table>
             <h2>Price Manipulation Attack</h2>
+            The refined rule yields a high true positive rate (94.44%) and a relatively low false negative rate (5.56%) in the <i>Attack</i> dataset, with false negatives resulting from low profit margin and multi-transaction cases. In non-attack datasets, the true negative rates are significantly improved (98.51%) for <i>High-Gas</i> and (99.48%) for <i>Regular</i> after incorporating P1 and P2. The remaining false positives are primarily caused by arbitrage, complex transactions, and add/remove liquidity actions.
+            <table>
+              <thead>
+                <tr>
+                  <th rowspan="2">Dataset</th>
+                  <th rowspan="2">Attack</th>
+                  <th colspan="2">Non-Attack</th>
+                </tr>
+                <tr>
+                  <th>High-Gas</th>
+                  <th>Regular</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Size</td>
+                  <td>54</td>
+                  <td>1,075</td>
+                  <td>19,989</td>
+                </tr>
+                <tr>
+                  <td>Gas Cost</td>
+                  <td>6.89 &plusmn; 3.37M</td>
+                  <td>2.14 &plusmn; 1.38M</td>
+                  <td>0.24 &plusmn; 0.26M</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th colspan="4">Generic Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Traversal Time</td>
+                  <td>32 &plusmn; 17ms</td>
+                  <td>7 &plusmn; 27ms</td>
+                  <td>2.2 &plusmn; 1.1ms</td>
+                </tr>
+                <tr>
+                  <td>TP (%)</td>
+                  <td>53 (98.15%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>FN (%)</td>
+                  <td>1 (1.85%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>TN (%)</td>
+                  <td>-</td>
+                  <td>322 (29.95%)</td>
+                  <td>18,410 (92.10%)</td>
+                </tr>
+                <tr>
+                  <td>FP (%)</td>
+                  <td>-</td>
+                  <td>753 (70.05%)</td>
+                  <td>1,579 (7.90%)</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th colspan="4">Refined Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Traversal Time</td>
+                  <td>47 &plusmn; 23ms</td>
+                  <td>10 &plusmn; 24ms</td>
+                  <td>2.4 &plusmn; 1.5ms</td>
+                </tr>
+                <tr>
+                  <td>TP (%)</td>
+                  <td>51 (94.44%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>FN (%)</td>
+                  <td>3 (5.56%)</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>TN (%)</td>
+                  <td>-</td>
+                  <td>1,059 (98.51%)</td>
+                  <td>19,886 (99.48%)</td>
+                </tr>
+                <tr>
+                  <td>FP (%)</td>
+                  <td>-</td>
+                  <td>16 (1.49%)</td>
+                  <td>103 (0.52%)</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
