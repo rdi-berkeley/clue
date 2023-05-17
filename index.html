@@ -74,7 +74,7 @@
     </div>
 
     <div class="container py-5 text-center">
-      <h1><i>What Execution Property Graph (EPG) is:</i></h1>
+      <h1><i>Contract Execution Representation Graphs</i></h1>
       <div class="row align-items-center">
         <div class="col-lg-6">
             <img src="img/epg-graph-code.png" style="width: 80%;">      
@@ -85,15 +85,12 @@
           </div>
         </div> -->
         <div class="col-lg-6">
-          <img src="img/epg-graph-example.png" id="displayed-image" style="width: 100%;">
+          <img src="img/epg-graph-ctg.png" id="displayed-image" style="width: 60%;">
         </div>
         <div>
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary">
-              <input type="radio" name="graph-options" onclick="displayImage('example')" autocomplete="off" checked> EPG
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="graph-options" onclick="displayImage('ctg')" autocomplete="off"> CTG
+              <input type="radio" name="graph-options" onclick="displayImage('ctg')" autocomplete="off" checked> CTG
             </label>
             <label class="btn btn-secondary">
               <input type="radio" name="graph-options" onclick="displayImage('dcfg')" autocomplete="off"> DCFG
@@ -113,8 +110,6 @@
               displayedImage.style.width = '60%';
             } else if (imageName === "ddg") {
               displayedImage.style.width = '80%';
-            } else if (imageName === "example") {
-              displayedImage.style.width = '100%';
             }
             displayedImage.src = 'img/epg-graph-' + imageName + '.png';
           }
@@ -122,15 +117,27 @@
 
         <center>
           <div style="width: 80%; text-align: left;">
-            EPG is a graph representation of smart contract executions. It is a property graph that combines the dynamic execution information on EVM bytecode level, supplied by three basic execution representation graphs: <i>(i) Call Trace Graph (CTG), (ii) Dynamic Control Flow Graph (DCFG)</i>, and <i>(iii) Dynamic Dependence Graph (DDG)</i>. The <i>CTG</i> represents the calling relationships between mulitple smart contracts in a transaction. The <i>DCFG</i> represents the dynamically executed smart contract code as a graph, where each vertex denotes a basic block. The <i>DDG</i> represents data dependencies and control dependencies in a smart contract built from concrete executions.
+            These figures show the solidity source code and three corresponding basic execution representation graphs: <i>(i) Call Trace Graph (CTG), (ii) Dynamic Control Flow Graph (DCFG)</i>, and <i>(iii) Dynamic Dependence Graph (DDG)</i>. The <i>CTG</i> represents the calling relationships between mulitple smart contracts in a transaction. The <i>DCFG</i> represents the dynamically executed smart contract code as a graph, where each vertex denotes a basic block. The <i>DDG</i> represents data dependencies and control dependencies in a smart contract built from concrete executions.
           </div>
         </center>
       </div>
     </div>
 
     <div class="container py-5 text-center">
+      <h1><i>Execution Property Graph (EPG)</i></h1>
       <div class="row align-items-center">
-        <h1><i>How <span class="clue">Clue</span> works:</i></h1>
+        <div class="col-lg-6">
+          <img src="img/epg-graph-example.png" id="displayed-image" style="width: 100%;">
+        </div>
+        <div class="col-lg-6" style="text-align: left;">
+          EPG is a comprehensive graph representation of smart contract executions, which is constructed by merging the three basic property graphs, CTG, DCFG, and DDG. It combines the dynamic execution information on EVM bytecode level.
+        </div>
+      </div>
+    </div>
+    
+    <div class="container py-5 text-center">
+      <div class="row align-items-center">
+        <h1><i>Architecture of <span class="clue">Clue</span></i></h1>
         <div>
           <img src="img/epg-overview.png" class="w-100 rounded">
         </div>
@@ -139,6 +146,18 @@
             This flow chart shows the high-level architecture of <span class="clue">Clue</span>. <span class="clue">Clue</span> offers support for both online and offline modes. The online mode enables real-time analysis of unconfirmed transactions, while the offline mode facilitates postmortem analysis. Central to <span class="clue">Clue</span> is an EVM emulator, which emulates and tracks the execution of the EVM. <span class="clue">Clue</span> allows extracting the data, control, asset flows from a transaction and further constructing EPG efficiently. Based on the EPG, we devise a graph traversal approach for identifying smart contract attacks automatically.
           </div>
         </center>
+      </div>
+    </div>
+    
+    <div class="container py-5 text-center">
+      <h1><i>Traversal Based Security Analysis</i></h1>
+      <div class="row align-items-center">
+        <div class="col-lg-6" style="text-align: left;">
+          !!!!!!The EPG provides extensive information about the contract executions involved in a transaction. The <i>Graph Traversal</i> is a prevalent method for mining information in property graphs, automates the identification of contract attacks.
+        </div>
+        <div class="col-lg-6">
+          <img src="img/epg-graph-example.png" id="displayed-image" style="width: 100%;">
+        </div>
       </div>
     </div>
 
